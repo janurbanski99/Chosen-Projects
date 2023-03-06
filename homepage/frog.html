@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Frog</title>
+
+
+        <script>
+            function getRandomNumber(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            // // function poka(){
+
+
+        // document.getElementById("żaba").style.top = 100px;
+        // document.getElementById("żaba").style.left = 100px;
+            // }
+
+            document.addEventListener("DOMContentLoaded", function(){
+
+                const el = document.getElementById('żabadiv');
+                const hiddendiv = document.getElementById('żaba');
+                // el.style.display = "none";
+                hiddendiv.style.visibility  = 'hidden';
+
+                hiddendiv.addEventListener('mouseover', function handleMouseOver() {
+                    hiddendiv.style.visibility  = 'visible';
+             });
+                hiddendiv.addEventListener('mouseout', function handleMouseOut() {
+                    hiddendiv.style.visibility = 'hidden';
+                });
+
+                el.addEventListener('mouseover', function handleMouseOver() {
+                    hiddendiv.style.visibility  = 'visible';
+                });
+                el.addEventListener('mouseout', function handleMouseOver() {
+                    hiddendiv.style.visibility  = 'hidden';
+                });
+
+                var winWidth = window.innerWidth;
+                var winHeight = window.innerHeight;
+                var randomTop = getRandomNumber(0, winHeight);
+                var randomLeft = getRandomNumber(0, winWidth);
+                hiddendiv.style.position = 'absolute';
+                hiddendiv.style.top = randomTop +'px';
+                hiddendiv.style.left = randomLeft +'px';
+                el.style.position = 'absolute';
+                el.style.top = randomTop +'px';
+                el.style.left = randomLeft +'px';
+            });
+
+        </script>
+    </head>
+    <body style = "background-color: rgb(255, 199, 238);">
+
+        <div id="żabadiv" style = "background-color: rgb(255, 199, 238); height: 270px; width: 480px"> </div>
+        <div style = "height: 200px;" id = "żaba">
+             <img src="żabagif.gif">
+        </div>
+
+                <a href = "https://jasioo7-code50-107135961-5g7v9gp9j34vpq-8080.preview.app.github.dev/index.html">
+        <button type="button" class="btn btn-secondary" style='position: fixed; bottom: 0; right: 0; width: 250px; height: 50px'>
+        Back to the homepage</button>
+        </a>
+    </body
+</html>
