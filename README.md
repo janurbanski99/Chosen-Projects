@@ -1,1 +1,1 @@
-# CS50-Choses Projects
+# CS50-Chosen Projects
