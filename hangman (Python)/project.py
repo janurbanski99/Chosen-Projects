@@ -1,10 +1,10 @@
 #CHECK Na póżniej - podaj długość słowa (np 3-8), losowanie ze słownika przy pomocy API słowa, gra rozpoczyna sb
 
 #CHECK Teraz - mamy jakieś słowo, napisane jako _ _ _ _ _ poproś użytkownika o podanie litery (case insensitive)
-    #CHECK jeśli litera występuje w słowie - dodaj ją do hasła (osoban fukcja może być)
+    #CHECK jeśli litera występuje w słowie - dodaj ją do hasła (osobna fukcja może)
     #CHECK jeśli nie występuje - kolejny etap z hangmana
     #CHECK jeśli nie podał litery tylko co innego lub więcej niż 1 literę - komunikat i niech wpisze jeszcze raz (nie rysujemy kolejnego etapu)
-    #CHECK i tak do odciny
+    #CHECK i tak do odgadnięcia / przegrania
 
     #CHECK jeśli odgadł całe hasło - komunikat o wygranej
     #CHECK jeśli przegrał - komunikat o przegranej
