@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "66d69d65-4dfc-49f3-9f1e-1bdda2b10482",
+		"name": "SRI03-Urbański-s32042",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33659510"
+	},
+	"item": [
+		{
+			"name": "Add Zoo1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Zoo1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/zoos"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Zoo2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Zoo2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/zoos"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zoos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/zoos"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Animal1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Animal1\",\r\n    \"species\" : \"dog\",\r\n    \"type\" : \"omnivorous\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Animal2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Animal2\",\r\n    \"species\" : \"cat\",\r\n    \"type\" : \"omnivorous\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Animal3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Animal3\",\r\n    \"species\" : \"penguin\",\r\n    \"type\" : \"herbivorous\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Animals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Animal1 to Zoo1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals/1/zoo/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Animal2 to Zoo2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals/2/zoo/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Animals from Zoo1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/zoos/1/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Invalid ZooId in getAnimalsByZooid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/zoos/3/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zoo1 Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/zoos/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Animal1 from Zoo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "localhost:8080/api/animals/1/removeFromZoo"
+			},
+			"response": []
+		},
+		{
+			"name": "Check invalid animal POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"species\" : \"dog\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/animals"
+			},
+			"response": []
+		},
+		{
+			"name": "Check invalid zoo POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/zoos"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Zoo1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/api/zoos/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Change Zoo Name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Zoo100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/zoos/2"
+			},
+			"response": []
+		}
+	]
+}
