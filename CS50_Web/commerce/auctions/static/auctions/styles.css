@@ -1,0 +1,15 @@
+body {
+    padding: 10px;
+}
+
+form input, form textarea, form select {
+    display: block !important;
+    margin-bottom: 10px;
+}
+
+.listing-img {
+    width: 20%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}

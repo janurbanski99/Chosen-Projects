@@ -1,0 +1,38 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if messages %}
+        <div class="alert alert-info" role="alert">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h2>Active Listings</h2>
+
+    <div class="container-fluid" style="padding-left: 10px; padding-right: 10px;">
+        <div class="d-flex flex-wrap">
+            {% for listing in listings %}
+                {% if not listing.closed %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ listing.title }}</h5>
+                                <p class="card-text">{{ listing.description }}</p>
+                                <p class="card-text">
+                                    <strong>Current prize: ${{ listing.current_prize|default:listing.starting_bid }}</strong>
+                                </p>
+                                <a href="{% url 'go_to_listing' id=listing.id %}" class="btn btn-primary">View details</a>
+                            </div>
+                            {% if listing.img_url %}
+                            <img src="{{ listing.img_url }}" class="card-img-top" alt="{{ listing.title }}" style="height: 200px; object-fit: cover;">
+                            
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
