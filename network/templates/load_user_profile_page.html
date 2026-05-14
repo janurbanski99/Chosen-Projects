@@ -1,0 +1,57 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+    <div class="card mx-4 my-2">
+        <div class="card-header bg-primary text-white">
+            <h3>{{ profile_user.username }} profile page</h3>
+            {% if user != profile_user %}
+                {% if is_following %}
+                    <button id="follow_or_unfollow_button" class="btn btn-light btn-sm" data-user-id = "{{ profile_user.id }}">Unfollow</button>
+                {% else %}
+                    <button id="follow_or_unfollow_button" class="btn btn-light btn-sm" data-user-id = "{{ profile_user.id }}">Follow</button>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <p><strong>Followed by:</strong> {{ num_followed_by }} users</p>
+            <p><strong>Follows:</strong> {{ num_following }} users</p>
+        </div>
+    </div>
+
+    <h3 class="mx-4 mt-3">{{ profile_user.username }} posts:</h3>
+
+    {% for post in post_obj %}
+        {% include "network/partials/posts.html" %}
+    {% empty %}
+        <div class="card mx-4 my-2">
+            <div class="card-body">
+                No posts yet.
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if post_obj.has_previous %}
+                <a href="?id={{  profile_user.id  }}&page=1">&laquo; first</a>
+                <a href="?id={{  profile_user.id  }}&page={{ post_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ post_obj.number }} of {{ post_obj.paginator.num_pages }}.
+            </span>
+
+            {% if post_obj.has_next %}
+                <a href="?id={{  profile_user.id  }}&page={{ post_obj.next_page_number }}">next</a>
+                <a href="?id={{  profile_user.id  }}&page={{ post_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

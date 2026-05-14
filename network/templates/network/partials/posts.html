@@ -1,0 +1,29 @@
+<div class="card mx-4 my-2">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <div class="user_profile_wrapper">
+            <small class="text-muted">Post by:</small>
+            <strong class="user_profile_link ms-1" 
+                    data-user-id="{{ post.user.id }}"
+                    style="font-size: 1.2rem; cursor: pointer;"
+                    onclick="window.location.href='/users/?id={{ post.user.id }}'">
+                {{ post.user }}
+            </strong>
+        </div>
+        <small class="text-muted">{{ post.timestamp }}</small>
+    </div>
+    <div class="card-body">
+        <p class = "post-body" style="font-size: 25px;">{{ post.body }}</p>
+        <textarea class="form-control post-edit-area d-none" style="font-size: 25px;">{{ post.body }}</textarea>
+
+        <small title="{% if request.user in post.liked_by.all %} Click to unlike {% else %} Click to like {% endif %}"
+               style="font-size: 15px; cursor: pointer;" class="like_unlike"
+               data-post-id="{{ post.id }}">
+            ❤️ {{ post.likes }}
+        </small>
+        <br>
+        {% if post.user == request.user %}
+            <button class="btn btn-sm btn-outline-secondary edit-btn mt-2" data-post-id="{{ post.id }}">Edit</button>
+            <button class="btn btn-sm btn-success save-btn d-none mt-2" data-post-id="{{ post.id }}">Save</button>
+        {% endif %}
+    </div>
+</div>

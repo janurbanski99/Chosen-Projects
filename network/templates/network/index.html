@@ -1,0 +1,27 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div id="new_post" class="my-4 mx-4">
+            <h3>New post</h3>
+            <form id="new_post_form">
+                <div class="form-group">
+                    <textarea id='post_content' class="form-control" rows="3" placeholder="Write your post here!"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+
+        {% for post in post_obj %}
+            {% include "network/partials/posts.html" %}
+        {% endfor %}
+
+    {% include "network/partials/pagination.html" %}
+
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
